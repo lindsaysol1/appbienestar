@@ -28,8 +28,7 @@ class Inicio extends StatelessWidget {
                       children:[
                         Image.asset('assets/images/imagen1.png'),
                         Image.asset('assets/images/imagen2.png'),
-                        Image.asset('assets/images/imagen3.png'),
-                        Image.asset('assets/images/imagen4.png'),
+
                       ],
                     ),
                   ),
