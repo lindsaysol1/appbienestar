@@ -13,32 +13,22 @@ class Inicio extends StatelessWidget {
     final ControladorPagina c = Get.put(ControladorPagina());
 
     return Scaffold(
-      // Use Obx(()=> to update Text() whenever count is changed.
-        appBar: AppBar(title: Obx(() => Text("Clicks:${c.item}"))),
-
-        // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
         body: Column(
-          children: [
-            Container(
-              child: Column(
+            children: [
+              Stack(
                 children: [
-                  Text('Categoria1'),
                   Container(
-                    child: Row(
-                      children:[
-                        Image.asset('assets/images/imagen1.png'),
-                        Image.asset('assets/images/imagen2.png'),
-
-                      ],
-                    ),
-                  ),
-                ],
+                  width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height *0.3,
+                decoration: BoxDecoration(
+                  color: Color(0xff067fc7),
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(100), bottomRight: Radius.circular(100)),
+                ),
               ),
-            )
-          ],
+            ],
+          ),
+                ],
         ),
-
-
 
           bottomNavigationBar: Obx(()=> SalomonBottomBar(
             currentIndex: c.item.value.toInt(),
@@ -46,36 +36,22 @@ class Inicio extends StatelessWidget {
             items: [
               /// Home
               SalomonBottomBarItem(
-                icon: Icon(Icons.home),
-                title: Text("Inicio"),
-                selectedColor: Colors.purple,
+                icon: Icon(Icons.schedule),
+                title: Text("Horas"),
+                selectedColor: Colors.lightBlue,
               ),
               /// Home
               SalomonBottomBarItem(
                 icon: Icon(Icons.home),
                 title: Text("Inicio"),
-                selectedColor: Colors.purple,
+                selectedColor: Colors.lightBlue,
               ),
 
               /// Likes
               SalomonBottomBarItem(
-                icon: Icon(Icons.favorite_border),
-                title: Text("Likes"),
-                selectedColor: Colors.pink,
-              ),
-
-              /// Search
-              SalomonBottomBarItem(
-                icon: Icon(Icons.search),
-                title: Text("Search"),
-                selectedColor: Colors.orange,
-              ),
-
-              /// Profile
-              SalomonBottomBarItem(
-                icon: Icon(Icons.person),
-                title: Text("Profile"),
-                selectedColor: Colors.teal,
+                icon: Icon(Icons.format_list_bulleted),
+                title: Text("Actividades"),
+                selectedColor: Colors.lightBlue,
               ),
             ],
           ),

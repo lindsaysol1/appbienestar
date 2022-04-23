@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
 
+  static const String iconsAtras = 'assets/icons/atras.png';
+  static const String imagesBienestar = 'assets/images/Bienestar.png';
   static const String imagesImagen1 = 'assets/images/imagen1.png';
   static const String imagesImagen2 = 'assets/images/imagen2.png';
   static const String imagesImagen3 = 'assets/images/imagen3.png';
