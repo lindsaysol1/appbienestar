@@ -3,17 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import '../controladores/Usuario.dart';
+
 
 class Inicio extends StatelessWidget {
+  get callbackFunction => null;
+
+
 
   @override
   Widget build(context) {
 
     // Instantiate your class using Get.put() to make it available for all "child" routes there.
     final ControladorPagina c = Get.put(ControladorPagina());
+    final Usuario u = Get.put(Usuario());
 
     return Scaffold(
+
+      appBar: AppBar(title: Text(u.datoUsuario),),
         body: Column(
+
             children: [
               Stack(
                 children: [
@@ -27,7 +36,8 @@ class Inicio extends StatelessWidget {
               ),
             ],
           ),
-                ],
+            ],
+
         ),
 
           bottomNavigationBar: Obx(()=> SalomonBottomBar(
@@ -58,4 +68,5 @@ class Inicio extends StatelessWidget {
           ),
     );
   }
+
 }

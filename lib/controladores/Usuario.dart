@@ -10,11 +10,7 @@ class Usuario extends GetxController {
   guardarUsuario() {
     datoUsuario = username.text;
     if (datoUsuario.toUpperCase() == 'DIEGO') {
-      if (GetUtils.isEmail(correo.text)) {
-        Get.to(Inicio());
-      } else {
-        Get.snackbar('Error', 'Email invalido');
-      }
+      Get.to(Inicio());
     }
     else {
       Get.snackbar('Error', 'Usted no es diego');

@@ -7,6 +7,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(context) {
+    final Usuario u = Get.put(Usuario());
 
     return Scaffold(
       body:
