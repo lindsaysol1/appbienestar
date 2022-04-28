@@ -4,9 +4,9 @@ class Assets {
 
   static const String iconsAtras = 'assets/icons/atras.png';
   static const String imagesBienestar = 'assets/images/Bienestar.png';
-  static const String imagesImagen1 = 'assets/images/imagen1.png';
-  static const String imagesImagen2 = 'assets/images/imagen2.png';
-  static const String imagesImagen3 = 'assets/images/imagen3.png';
-  static const String imagesImagen4 = 'assets/images/imagen4.png';
+  static const String imagesImagen1 = 'assets/images/Imagen1.jpg';
+  static const String imagesImagen2 = 'assets/images/Imagen2.jpg';
+  static const String imagesImagen3 = 'assets/images/Imagen3.jpg';
+  static const String imagesImagen4 = 'assets/images/Imagen4.jpg';
 
 }
