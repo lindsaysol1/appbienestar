@@ -23,14 +23,24 @@ class Inicio extends StatelessWidget {
     return Scaffold(
       body:
       ListView(
+        padding: EdgeInsets.all(15),
         children: [
           Container(
-            child: Image.asset('assets/images/perfil.png'),
+          child: Column(
+            children: [
+              Text('Hola',
+              style: GoogleFonts.quicksand(textStyle: TextStyle(color: Color(0xFF06ABC8),
+                  fontSize: 30,
+                  fontWeight: FontWeight.w800 )),
+              ),
+              Image.asset('assets/images/usuario.png'),
+            ],
+          ),
+
           ),
           Container(
-            margin: EdgeInsets.all(10),
             width: MediaQuery.of(context).size.width*0.8,
-            padding: EdgeInsets.all(15.0),
+            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.white,
@@ -71,7 +81,7 @@ class Inicio extends StatelessWidget {
           Container(
             child: Text('Actividades que podrían gustarte',
               style: GoogleFonts.quicksand(textStyle: TextStyle(color: Colors.blueGrey[900],
-                  fontSize: 14,
+                  fontSize: 15,
                   fontWeight: FontWeight.w800 )),
             ),
           ),
@@ -129,7 +139,12 @@ class Inicio extends StatelessWidget {
           ),
         ],
       ),
-
+      floatingActionButton: FloatingActionButton(
+        child: const Icon (Icons.qr_code),
+        onPressed: (){
+          print('Hola Mundo');
+        },
+      ),
 
       bottomNavigationBar: Obx(()=> SalomonBottomBar(
         currentIndex: c.item.value.toInt(),
