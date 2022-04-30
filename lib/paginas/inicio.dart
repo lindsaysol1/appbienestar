@@ -10,6 +10,8 @@ import '../controladores/Usuario.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'horas.dart';
+
 
 class Inicio extends StatelessWidget {
 
@@ -21,126 +23,193 @@ class Inicio extends StatelessWidget {
     final Usuario u = Get.put(Usuario());
 
     return Scaffold(
-      body:
-      ListView(
-        padding: EdgeInsets.all(15),
+      body:Stack(
         children: [
           Container(
-          child: Column(
-            children: [
-              Text('Hola',
-              style: GoogleFonts.quicksand(textStyle: TextStyle(color: Color(0xFF06ABC8),
-                  fontSize: 30,
-                  fontWeight: FontWeight.w800 )),
-              ),
-              Image.asset('assets/images/usuario.png'),
-            ],
-          ),
-
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width*0.8,
-            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: Colors.white,
-              boxShadow:[
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 4,
-                ),]
+              image: DecorationImage(
+                image: AssetImage('assets/icons/Circulo.png'),
+                  alignment: Alignment.topLeft
+              )
             ),
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(bottom: 10,),
-                  alignment: Alignment.topLeft,
-                  child: Text('Progreso de Horas',
-                    style: GoogleFonts.quicksand(
-                        textStyle: TextStyle(color: Colors.blueGrey[900],
-                          fontSize: 14, fontWeight: FontWeight.w800,)),
+          ),
+          ListView(
+            padding: EdgeInsets.all(15),
+            children: [
+              Container(
+                padding: EdgeInsets.all(10),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    Image.asset('assets/images/usuario.png'),
+                    Text('Hola',
+                      style: GoogleFonts.quicksand(textStyle: TextStyle(color: Color(0xFF06ABC8),
+                          fontSize: 30,
+                          fontWeight: FontWeight.w800 )),
+                    ),
+                  ],
+                ),
+
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width*0.8,
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.white,
+                    boxShadow:[
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 4,
+                      ),]
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(bottom: 10,),
+                      alignment: Alignment.topLeft,
+                      child: Text('Progreso de Horas',
+                        style: GoogleFonts.quicksand(
+                            textStyle: TextStyle(color: Colors.blueGrey[900],
+                              fontSize: 14, fontWeight: FontWeight.w800,)),
+                      ),
+                    ),
+
+                    new LinearPercentIndicator(
+                      width: MediaQuery.of(context).size.width - 50,
+                      animation: true,
+                      barRadius: Radius.circular(10),
+                      lineHeight: 20.0,
+                      animationDuration: 2000,
+                      percent: 0.8,
+                      center: Text("80 horas", style: TextStyle(
+                          fontWeight: FontWeight.w300)),
+                      backgroundColor: Color(0xFFF6F6F6),
+                      progressColor: Color(0xFFC9D400),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(padding: EdgeInsets.only(top:20)),
+              Container(
+                child: Text('Actividades que podrían gustarte',
+                  style: GoogleFonts.quicksand(textStyle: TextStyle(color: Colors.blueGrey[900],
+                      fontSize: 18,
+                      fontWeight: FontWeight.w800 )),
+                ),
+              ),
+              Padding(padding: EdgeInsets.only(top:20)),
+              CarouselSlider(items: [
+                InkWell(
+                  onTap: (){
+                    Get.to(Horas());
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width*1.0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Image.asset("assets/images/Imagen1.jpg"),
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: (){
+                    Get.to(Horas());
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width*1.0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Image.asset("assets/images/Imagen2.jpg"),
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: (){
+                    Get.to(Horas());
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width*1.0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Image.asset("assets/images/Imagen3.jpg"),
+                      ),
+                    ),
                   ),
                 ),
 
-              new LinearPercentIndicator(
-              width: MediaQuery.of(context).size.width - 50,
-              animation: true,
-              barRadius: Radius.circular(10),
-              lineHeight: 20.0,
-              animationDuration: 2000,
-              percent: 0.1,
-              center: Text("10 horas", style: TextStyle(
-                  fontWeight: FontWeight.w300)),
-              backgroundColor: Color(0xFFF6F6F6),
-              progressColor: Color(0xFFC9D400),
-            ),
-              ],
-            ),
-          ),
-          Padding(padding: EdgeInsets.only(top:20)),
-          Container(
-            child: Text('Actividades que podrían gustarte',
-              style: GoogleFonts.quicksand(textStyle: TextStyle(color: Colors.blueGrey[900],
-                  fontSize: 15,
-                  fontWeight: FontWeight.w800 )),
-            ),
-          ),
-          Padding(padding: EdgeInsets.only(top:20)),
-          CarouselSlider(items: [
-            Container(
-              width: MediaQuery.of(context).size.width*1.0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: Image.asset("assets/images/Imagen1.jpg"),
+                InkWell(
+                  onTap: (){
+                    Get.to(Horas());
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width*1.0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Image.asset("assets/images/Imagen4.jpg"),
+                      ),
+                    ),
+                  ),
                 ),
+              ], options: CarouselOptions(
+                height: 140.0,
+                aspectRatio: 16/9,
+                viewportFraction: 0.5,
+                autoPlayCurve: Curves.easeInOut,
+                enlargeCenterPage: true,
+                scrollDirection: Axis.horizontal,
               ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width*1.0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: Image.asset("assets/images/Imagen2.jpg"),
-                ),
               ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width*1.0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: Image.asset("assets/images/Imagen3.jpg"),
-                ),
-              ),
-            ),
+              Padding(padding: EdgeInsets.only(top:20)),
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Actividades Recientes',
+                      style: GoogleFonts.quicksand(textStyle:
+                      TextStyle(color: Colors.blueGrey[900], fontSize: 18, fontWeight: FontWeight.w800 )),),
+                    Card(
+                      child: ListTile(
+                        title: Text('Acuarela básica', style: GoogleFonts.quicksand(textStyle:
+                        TextStyle(color: Color(0xFFC9D400), fontSize: 16, fontWeight: FontWeight.w800 )),),
 
-            Container(
-              width: MediaQuery.of(context).size.width*1.0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: Image.asset("assets/images/Imagen4.jpg"),
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset('assets/images/Imagen3.jpg'),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Lunes 12:00m  - 2:00 pm', textAlign: TextAlign.left, style: GoogleFonts.quicksand(textStyle:
+                            TextStyle(color: Color(0xFFC9D400), fontSize: 12, fontWeight: FontWeight.w800 )),),
+                            Text('Cuelquier Nombre', style: GoogleFonts.quicksand(textStyle:
+                            TextStyle(color: Color(0xFFC9D400), fontSize: 12, fontWeight: FontWeight.w800 )),)
+                          ],),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ], options: CarouselOptions(
-            height: 140.0,
-            aspectRatio: 16/9,
-            viewportFraction: 0.5,
-            autoPlayCurve: Curves.easeInOut,
-            enlargeCenterPage: true,
-            scrollDirection: Axis.horizontal,
-          ),
-          ),
+
+            ],
+          )
         ],
-      ),
+      )
+      ,
+
       floatingActionButton: FloatingActionButton(
-        child: const Icon (Icons.qr_code),
+        child: const Icon (Icons.qr_code, color: Colors.black,),
+        backgroundColor: Colors.white,
         onPressed: (){
           print('Hola Mundo');
         },

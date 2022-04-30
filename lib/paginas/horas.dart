@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../controladores/Controlador_pagina.dart';
+import 'inicio.dart';
 
 class Horas extends StatelessWidget {
 
@@ -13,7 +14,25 @@ class Horas extends StatelessWidget {
         appBar: AppBar(title: Text("Inicio")),
 
         // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
-        body: Center(child: Text("Horas")),
+        body: ListView(
+          children: [
+            Card(
+              child: ListTile(
+                onTap: (){
+                  Get.to(Inicio());
+                },
+                title: Text('Acuerela básica'),
+                leading: Image.asset('assets/images/Imagen1.jpg'),
+                subtitle: Column(children: [
+                  Text('Lunes 12:00m  - 2:00 pm'),
+                  Text('Cuelquier Nombre')
+                ],)
+                ,
+                trailing: Icon(Icons.arrow_forward_ios),
+              ),
+            )
+          ],
+        ),
 
     bottomNavigationBar: Obx(()=> SalomonBottomBar(
     currentIndex: c.item.value.toInt(),
